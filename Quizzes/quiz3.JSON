@@ -1,0 +1,38 @@
+[
+	{
+		"question" : "When roasting beef, how long should you boil it for beforehand?",
+		"answerA" : "A: 25 minutes",
+		"answerB" : "B: 10 minutes per kilo",
+		"answerC" : "C: You don't boil it beforehand",
+		"answerD" : "D: 10 minutes per pound",
+		"correct" : "C"
+	},{
+		"question" : "How would you make a brown stock?",
+		"answerA" : "A: Roast bones, carrot, onion and celery before boiling",
+		"answerB" : "B: Boil bones, carrot, onion and celery",
+		"answerC" : "C: Add brown sauce to white stock",
+		"answerD" : "D: Milk, red cabbage, spinach and lemon zest",
+		"correct" : "A"
+	},{
+		"question" : "When cooking what is a roux used for?",
+		"answerA" : "A: A rub",
+		"answerB" : "B: Making roulade",
+		"answerC" : "C: A thickening agent",
+		"answerD" : "D: Cleaning knives",
+		"correct" : "C"
+	},{
+		"question" : "What woudn't you use to make gravy?",
+		"answerA" : "A: Stock",
+		"answerB" : "B: Raspberry jam",
+		"answerC" : "C: Roux",
+		"answerD" : "D: Beef fat",
+		"correct" : "C"
+	},{
+		"question" : "Yorkie puds",
+		"answerA" : "A: Egg",
+		"answerB" : "B: Flour",
+		"answerC" : "C: Cream",
+		"answerD" : "D: Nutmeg",
+		"correct" : "C"
+	}
+]

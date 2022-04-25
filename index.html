@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<script src="code.js"></script>
+		<link href="stylesheet.css" rel="stylesheet" type="text/css">
+	</head>
+	
+	<body>
+	<header>Food Quiz</header>
+	<main>
+	
+		<article class="grid-container">
+		<!--
+		<button title="Enter your name" onclick="getName()">Pizza1</button>
+
+		<button title="Start a new game" onclick="window.location.href='quiz.html';">Pizza2</button>
+		<button title="High Scores" onclick="window.location.href='quiz.html';">Pizza3</button>
+		<button title="Options" onclick="window.location.href='quiz.html';">Pizza4</button>
+		-->
+		
+			<!-- animated container -->
+			<div class ="container">
+				<img src="images/pizza-top-left.jpg" class ="slice1" onclick="getName()" width="150" height="150">
+				 <span class="tooltiptext">Enter your name</span>
+			</div>
+			<div class ="container">
+				<img src="images/pizza-top-right.jpg" class ="slice2" onclick="window.location.href='quiz.html';" width="150" height="150">
+				<span class="tooltiptext">New game</span>
+			</div>
+			<div class ="container">
+				<img src="images/pizza-bottom-left.jpg" class ="slice3" onclick="newGame()" width="150" height="150">
+				<span class="tooltiptext">High Scores</span>
+			</div>
+			<div class ="container">
+				<img src="images/pizza-bottom-right.jpg" class ="slice4" onclick="newGame()" width="150" height="150">
+				<span class="tooltiptext">Options</span>
+			</div>
+			</p>
+		</article>
+		
+		<p id="demo"></p>
+	</main>
+	</body>
+	
+</html>
