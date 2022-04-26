@@ -13,31 +13,27 @@
 		"answerB" : "B: Butter",
 		"answerC" : "C: Flour",
 		"answerD" : "D: Milk",
-		"correct" : "A",
-		"scheme" : "pasta"
+		"correct" : "A"
 	},{
 		"question" : "Which one of these vegetables is used in a ragu?",
 		"answerA" : "A: Marzipan",
 		"answerB" : "B: Onion",
 		"answerC" : "C: Aubergine",
 		"answerD" : "D: Celeriac",
-		"correct" : "B",
-		"scheme" : "pasta"
+		"correct" : "B"
 	},{
 		"question" : "What would you use ‘00’ durum flour for?",
 		"answerA" : "A: Pie crust",
 		"answerB" : "B: Baked potato",
 		"answerC" : "C: Pasta",
 		"answerD" : "D: Cakes",
-		"correct" : "C",
-		"scheme" : "pasta"
+		"correct" : "C"
 	},{
 		"question" : "What couldn't you make from the previous ingredients?",
 		"answerA" : "A: Lasagne",
 		"answerB" : "B: Cannelloni",
 		"answerC" : "C: Pizza",
 		"answerD" : "D: Baked penne pasta",
-		"correct" : "C",
-		"scheme" : "pasta"
+		"correct" : "C"
 	}
 ]

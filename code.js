@@ -7,6 +7,7 @@ let currentQuiz;
 const quizFiles = ["quiz1","quiz2","quiz3"];
 const previousQuiz = [];
 
+
 function displayQuestion() {
 	
 	let q = questions[currentQuestion];
@@ -16,6 +17,7 @@ function displayQuestion() {
 	answerB.innerHTML = q.answerB;
 	answerC.innerHTML = q.answerC;
 	answerD.innerHTML = q.answerD;
+	document.documentElement.className = q.scheme;
 }
 
 function processAnswer(answer) {

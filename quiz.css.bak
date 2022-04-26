@@ -1,0 +1,114 @@
+header, footer {
+	text-align: center;
+	padding: 0.3em 0;
+	background-color: var(--bg-color);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+#question {
+	position: relative;
+	left: 36.3vw;
+	top: 6vh;
+	border-radius: 12px;
+	border: 2px solid var(--text-color);
+	background: var(--alt-bg-color);
+	padding: 20px; 
+	width: 250px;
+	height: 25px;
+	text-align: center;
+}
+
+.grid-container {
+	display: grid;
+	justify-content: center;
+	grid-template-columns: 300px 125px;
+	gap: 5vw;
+	background-color: var(--bg-color);
+	transform: translate(0px, 13vh);
+} 
+
+.container {
+	width: 300px;
+	height: 125px;
+	position: left;
+	background: var(--bg-color);
+}
+
+.button {
+  
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.button1 {
+	background-color: white;
+	color: #4CAF50;
+	border: 2px solid #4CAF50;
+}
+
+.button1:hover {
+	background-color: #4CAF50;
+	color: white;
+}
+
+.button2 {
+  background-color: white; 
+  color: #008CBA; 
+  border: 2px solid #008CBA;
+}
+
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+.button3 {
+  background-color: white; 
+  color: #f44336; 
+  border: 2px solid #f44336;
+}
+
+.button3:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+.button4 {
+  background-color: white;
+  color: #555555;
+  border: 2px solid #555555;
+}
+
+.button4:hover {
+  background-color: #555555;
+  color: white;
+}
+
+:root,
+:root.pasta {
+  --bg-color: #fff1d0;
+  --text-color: #dd1c1a;
+  --alt-bg-color: #f0c808;
+}
+ 
+:root.roast {
+  --bg-color: #88665d;
+  --text-color: #5da271;
+   --alt-bg-color: #e9aa14;
+}
+
+:root.sandwich {
+  --bg-color: #f49cbb;
+  --text-color: #b96d40;
+   --alt-bg-color: #ffbf00;
+}
