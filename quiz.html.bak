@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="roast">
+<html lang="en" class="">
 	<head>
 		<meta charset="UTF-8" />
 		<script src="code.js"></script>
@@ -28,7 +28,7 @@
 			</div>
 		
 		</article>		
-			
+		<p id="testRecipe">The recipe is:</p>
 	</main>
 	</body>
 	

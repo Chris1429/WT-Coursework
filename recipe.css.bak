@@ -1,0 +1,68 @@
+body {
+	display: grid;
+	min-height: 100vh;
+	grid-template-columns: auto 1fr auto;
+	grid-template-rows: min-content 1fr min-content;
+	background: var(--bg-color);
+}
+
+header {
+	grid-row: 1;
+	grid-column: 1 / 4;
+	background: var(--bg-color);
+	text-align: center;
+}
+
+menu {
+	grid-row: 2;
+	grid-column: 1 / 2;
+	padding: 0 10px;
+	background: var(--alt-bg-color);
+	color: var(--aside-color);
+}
+
+main {
+	grid-row: 2;
+	grid-column: 2 / 3;
+	padding: 0 20px;
+	background: var(--bg-color);
+	color: var(--text-color);
+}
+
+aside {
+	grid-row: 2;
+	grid-column: 3 / 4;
+	padding: 0 10px;
+	background: var(--aside-color);
+	color: var(--alt-bg-color);
+}
+
+footer {
+	grid-row: 3;
+	grid-column: 1 / 4;
+	background: var(--bg-color);
+	text-align: center;
+	color: var(--text-color);
+}
+
+:root,
+:root.pasta {
+  --bg-color: #fff1d0;
+  --text-color: #dd1c1a;
+  --alt-bg-color: #f0c808;
+  --aside-color: #4d5382;
+}
+ 
+:root.roast {
+  --bg-color: #88665d;
+  --text-color: #e8aa14;
+   --alt-bg-color: #b96d40;
+   --aside-color: #5da271;
+}
+
+:root.sandwich {
+  --bg-color: #f49cbb;
+  --text-color: #b96d40;
+   --alt-bg-color: #ffbf00;
+   --aside-color: #570000;
+}

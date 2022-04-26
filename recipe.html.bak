@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" class="pasta">
+	<head>
+		<meta charset="UTF-8" />
+		<script src="code.js"></script>
+		<link href="recipe.css" rel="stylesheet" type="text/css">
+	</head>
+	
+	<body onload="getRecipe()">
+		<header><img src="images/header.jpeg" style="max-width:100%">
+		</header>
+		<menu class="menu">
+			<p id="ingredients"></p>
+		</menu>	
+		<main>
+	
+			<article>
+				<p id="recipe1"></p>
+			</article>
+			<article>
+				<p id="recipe2"></p>
+			</article>
+			<article>
+				<p id="recipe3"></p>
+			</article>
+			<article>
+				<p id="recipe4"></p>
+			</article>
+			<article>
+				<p id="recipe5"></p>
+			</article>
+		
+			<div class ="container">
+				<button class="button" onclick="window.location.href='quiz.html'; resumeQuiz();">Next question</button>
+			</div>
+			
+		</main>
+		<aside class="aside">
+			<p id="aside1"></p>
+		</aside>
+		<footer class="footer">Random holiday stuff by me</footer>
+	</body>
+	
+</html>

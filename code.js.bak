@@ -1,12 +1,13 @@
 //declare global variables
 let questions;
-let currentQuestion;
-let result;
+let currentQuestion=0;
+let result=0;
 let person;
 let currentQuiz;
 const quizFiles = ["quiz1","quiz2","quiz3"];
 const previousQuiz = [];
-
+let ingredient;
+let instructions;
 
 function displayQuestion() {
 	
@@ -18,20 +19,30 @@ function displayQuestion() {
 	answerC.innerHTML = q.answerC;
 	answerD.innerHTML = q.answerD;
 	document.documentElement.className = q.scheme;
-	theme.innerHTML = q.scheme;
+	ingredient = q.recipe1;
+	testRecipe.innerHTML = ingredient;
 }
 
 function processAnswer(answer) {
 	if (answer == questions[currentQuestion].correct){
 		result++;
-		localStorage.setItem("score",result);
+		sessionStorage.setItem("score",result);
+	} else {
+		currentQuestion++;
+		sessionStorage.setItem("currentQuestion",currentQuestion);
+		sessionStorage.setItem("result",result);
+		sessionStorage.setItem("currentQuiz",currentQuiz);
+		sessionStorage.setItem("recipe",ingredient);
+		sessionStorage.setItem("saveStatus",'1');
+		document.location.href="recipe.html";
+		
 	}
 	
 	if (currentQuestion < (questions.length-1)){
 		currentQuestion++;
 		displayQuestion();
 	} else {
-		localStorage.setItem("outOf",currentQuestion);
+		sessionStorage.setItem("outOf",currentQuestion);
 		document.location.href="results.html";
 		
 	}
@@ -39,11 +50,12 @@ function processAnswer(answer) {
 
 
 async function newGame() {
-	currentQuestion=0;
-	result = 0;
-	
+	if (sessionStorage.getItem("saveStatus") == '1'){
+		resumeQuiz();
+	} else {
 	quizSelector();
 	checkQuiz();
+	}
 	
 	questions = await getJSON('Quizzes/' + currentQuiz);
 	displayQuestion();
@@ -55,15 +67,15 @@ async function newGame() {
 }
 
 function getName() {
-	/*Currently echoes to screen, stores in localStorage */
+	/*Currently echoes to screen, stores in sessionStorage */
 	
   let text;
   person = prompt("Please enter your name:", "");
   if (person == null || person == "") {
     text = "User cancelled the prompt.";
   } else {
-	localStorage.setItem("username",person);
-    text = "Hello " + localStorage.getItem("username") + "! How are you today?";
+	sessionStorage.setItem("username",person);
+    text = "Hello " + sessionStorage.getItem("username") + "! How are you today?";
   }
   document.getElementById("demo").innerHTML = text;
 }
@@ -79,11 +91,11 @@ async function getJSON(fileName){
 }
 
 function results(){
-	let a = localStorage.getItem("score");
-	let b = localStorage.getItem("outOf");	
+	let a = sessionStorage.getItem("score");
+	let b = sessionStorage.getItem("outOf");	
 	b++;
 	c = getRating(a,b);
-	let text = "Thank you " +localStorage.getItem("username") +" your score is: " +a +" out of " +b +", you are a " +c +"<br>  Thanks for playing Food Quiz";
+	let text = "Thank you " +sessionStorage.getItem("username") +" your score is: " +a +" out of " +b +", you are a " +c +"<br>  Thanks for playing Food Quiz";
 	document.getElementById("gameOver").innerHTML = text;
 	//endGame();
 }
@@ -117,4 +129,30 @@ function getRating(mark, numOf){
 			text = "kitchen hand, keep learning!";
 	}
 	return text;
+}
+
+async function getRecipe(){
+	//recipe = "roux";
+	recipe = sessionStorage.getItem("recipe");
+	instructions = await getJSON('Recipes/' + recipe);
+	displayRecipe();	
+}
+
+function displayRecipe(){
+	
+	let r = instructions;
+	ingredients.innerHTML = r.ingredients;
+	recipe1.innerHTML = r.recipe1;
+	recipe2.innerHTML = r.recipe2;
+	recipe3.innerHTML = r.recipe3;
+	recipe4.innerHTML = r.recipe4;
+	recipe5.innerHTML = r.recipe5;
+	aside1.innerHTML = r.aside1;
+}
+
+async function resumeQuiz(){
+	currentQuestion = sessionStorage.getItem("currentQuestion");
+	result = sessionStorage.getItem("result");
+	currentQuiz = sessionStorage.getItem("currentQuiz");
+	sessionStorage("saveStatus",'0');
 }

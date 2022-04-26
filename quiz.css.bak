@@ -103,8 +103,8 @@ body {
  
 :root.roast {
   --bg-color: #88665d;
-  --text-color: #5da271;
-   --alt-bg-color: #e9aa14;
+  --text-color: #e8aa14;
+   --alt-bg-color: #b96d40;
 }
 
 :root.sandwich {
