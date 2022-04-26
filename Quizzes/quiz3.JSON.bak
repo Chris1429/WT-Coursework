@@ -13,27 +13,31 @@
 		"answerB" : "B: Boil bones, carrot, onion and celery",
 		"answerC" : "C: Add brown sauce to white stock",
 		"answerD" : "D: Milk, red cabbage, spinach and lemon zest",
-		"correct" : "A"
+		"correct" : "A",
+		"scheme" : "roast"
 	},{
 		"question" : "When cooking what is a roux used for?",
 		"answerA" : "A: A rub",
 		"answerB" : "B: Making roulade",
 		"answerC" : "C: A thickening agent",
 		"answerD" : "D: Cleaning knives",
-		"correct" : "C"
+		"correct" : "C",
+		"scheme" : "roast"
 	},{
 		"question" : "What woudn't you use to make gravy?",
 		"answerA" : "A: Stock",
 		"answerB" : "B: Raspberry jam",
 		"answerC" : "C: Roux",
 		"answerD" : "D: Beef fat",
-		"correct" : "C"
+		"correct" : "C",
+		"scheme" : "roast"
 	},{
 		"question" : "Yorkie puds",
 		"answerA" : "A: Egg",
 		"answerB" : "B: Flour",
 		"answerC" : "C: Cream",
 		"answerD" : "D: Nutmeg",
-		"correct" : "C"
+		"correct" : "C",
+		"scheme" : "roast"
 	}
 ]

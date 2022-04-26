@@ -15,7 +15,8 @@
 		"answerC" : "C: Flour",
 		"answerD" : "D: Milk",
 		"correct" : "A",
-		"scheme" : "pasta"
+		"scheme" : "pasta",
+		"recipe1" : "bechamel"
 	},{
 		"question" : "Which one of these vegetables is used in a ragu?",
 		"answerA" : "A: Marzipan",
@@ -23,7 +24,8 @@
 		"answerC" : "C: Aubergine",
 		"answerD" : "D: Celeriac",
 		"correct" : "B",
-		"scheme" : "pasta"
+		"scheme" : "pasta",
+		"recipe1" : "ragu"
 	},{
 		"question" : "What would you use ‘00’ durum flour for?",
 		"answerA" : "A: Pie crust",
@@ -31,7 +33,8 @@
 		"answerC" : "C: Pasta",
 		"answerD" : "D: Cakes",
 		"correct" : "C",
-		"scheme" : "pasta"
+		"scheme" : "pasta",
+		"recipe1" : "pasta-sheets"
 	},{
 		"question" : "What couldn't you make from the previous ingredients?",
 		"answerA" : "A: Lasagne",
@@ -39,6 +42,7 @@
 		"answerC" : "C: Pizza",
 		"answerD" : "D: Baked penne pasta",
 		"correct" : "C",
-		"scheme" : "pasta"
+		"scheme" : "pasta",
+		"recipe1" : "lasagne"
 	}
 ]
