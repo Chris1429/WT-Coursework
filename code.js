@@ -20,7 +20,6 @@ function displayQuestion() {
 	answerD.innerHTML = q.answerD;
 	document.documentElement.className = q.scheme;
 	ingredient = q.recipe1;
-	testRecipe.innerHTML = ingredient;
 }
 
 function processAnswer(answer) {
@@ -28,11 +27,7 @@ function processAnswer(answer) {
 		result++;
 		sessionStorage.setItem("score",result);
 	} else {
-		sessionStorage.setItem("currentQuestion",currentQuestion);
-		sessionStorage.setItem("result",result);
-		sessionStorage.setItem("currentQuiz",currentQuiz);
-		sessionStorage.setItem("recipe",ingredient);
-		sessionStorage.setItem("saveStatus",'1');
+		setStatus();
 		document.location.href="recipe.html";
 		
 	}
@@ -58,13 +53,9 @@ async function newGame() {
 		quizSelector();
 		checkQuiz();
 	}
-	
+	sessionStorage.setItem("saveStatus",'0');
 	questions = await getJSON('Quizzes/' + currentQuiz);
 	displayQuestion();
-	
-
-	
-	
 
 }
 
@@ -142,20 +133,39 @@ async function getRecipe(){
 function displayRecipe(){
 	
 	let r = instructions;
-	ingredients.innerHTML = r.ingredients;
+	requirements.innerHTML = r.ingredients;
 	recipe1.innerHTML = r.recipe1;
 	recipe2.innerHTML = r.recipe2;
 	recipe3.innerHTML = r.recipe3;
 	recipe4.innerHTML = r.recipe4;
 	recipe5.innerHTML = r.recipe5;
 	aside1.innerHTML = r.aside1;
+	
 	/*If saveStatus = 1 button = Next question else button = home */
+	if (sessionStorage.getItem("saveStatus") == '1'){
+		nextPage.innerHTML = "Next question";
+		document.getElementById("nextPage").setAttribute("onclick", "window.location.href='quiz.html';");
+	} else {
+		nextPage.innerHTML = "Return home";
+		document.getElementById("nextPage").setAttribute("onclick", "window.location.href='index.html';");
+	}
 }
 
 async function resumeQuiz(){
-	currentQuestion = sessionStorage.getItem("currentQuestion");
+	getStatus();	
 	currentQuestion++;
+}
+
+function setStatus(){
+	sessionStorage.setItem("currentQuestion",currentQuestion);
+	sessionStorage.setItem("result",result);
+	sessionStorage.setItem("currentQuiz",currentQuiz);
+	sessionStorage.setItem("recipe",ingredient);
+	sessionStorage.setItem("saveStatus",'1');
+}
+
+function getStatus(){
+	currentQuestion = sessionStorage.getItem("currentQuestion");
 	result = sessionStorage.getItem("result");
 	currentQuiz = sessionStorage.getItem("currentQuiz");
-	sessionStorage.setItem("saveStatus",'0');
 }

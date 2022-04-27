@@ -28,7 +28,7 @@
 			</div>
 		
 		</article>		
-		<p id="testRecipe">The recipe is:</p>
+		<p id="testRecipe"></p>
 	</main>
 	</body>
 	
