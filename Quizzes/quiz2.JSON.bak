@@ -13,20 +13,23 @@
 		"answerB" : "B: Mustard",
 		"answerC" : "C: Olive oil",
 		"answerD" : "D: Egg white",
-		"correct" : "D"
+		"correct" : "D",
+		"scheme" : "sandwich"
 	},{
 		"question" : "Which one of these ingredients would not be used for roasting ham?",
 		"answerA" : "A: Sugar",
 		"answerB" : "B: Onion",
 		"answerC" : "C: Parsley",
 		"answerD" : "D: Salt",
-		"correct" : "D"
+		"correct" : "D",
+		"scheme" : "sandwich"
 	},{
 		"question" : "What's the difference between leavened and unleavened bread?",
 		"answerA" : "A: Leavened bread is made with yeast, unleavened bread is not.",
 		"answerB" : "B: Unleavened bread is made with yeast, leavened bread is not.",
 		"answerC" : "C: Leavened bread is made with plain flour, unleavened bread uses wholemeal flour.",
 		"answerD" : "D: Leavened breads are used in religious ceremonies, unleavened breads are not.",
-		"correct" : "A"
+		"correct" : "A",
+		"scheme" : "sandwich"
 	}
 ]

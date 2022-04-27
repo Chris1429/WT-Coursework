@@ -1,7 +1,7 @@
 //declare global variables
 let questions;
-let currentQuestion=0;
-let result=0;
+let currentQuestion;
+let result;
 let person;
 let currentQuiz;
 const quizFiles = ["quiz1","quiz2","quiz3"];
@@ -28,7 +28,6 @@ function processAnswer(answer) {
 		result++;
 		sessionStorage.setItem("score",result);
 	} else {
-		currentQuestion++;
 		sessionStorage.setItem("currentQuestion",currentQuestion);
 		sessionStorage.setItem("result",result);
 		sessionStorage.setItem("currentQuiz",currentQuiz);
@@ -43,6 +42,7 @@ function processAnswer(answer) {
 		displayQuestion();
 	} else {
 		sessionStorage.setItem("outOf",currentQuestion);
+		sessionStorage.setItem("recipe",ingredient);
 		document.location.href="results.html";
 		
 	}
@@ -53,8 +53,10 @@ async function newGame() {
 	if (sessionStorage.getItem("saveStatus") == '1'){
 		resumeQuiz();
 	} else {
-	quizSelector();
-	checkQuiz();
+		currentQuestion = 0;
+		result = 0;
+		quizSelector();
+		checkQuiz();
 	}
 	
 	questions = await getJSON('Quizzes/' + currentQuiz);
@@ -148,11 +150,13 @@ function displayRecipe(){
 	recipe4.innerHTML = r.recipe4;
 	recipe5.innerHTML = r.recipe5;
 	aside1.innerHTML = r.aside1;
+	/*If saveStatus = 1 button = Next question else button = home */
 }
 
 async function resumeQuiz(){
 	currentQuestion = sessionStorage.getItem("currentQuestion");
+	currentQuestion++;
 	result = sessionStorage.getItem("result");
 	currentQuiz = sessionStorage.getItem("currentQuiz");
-	sessionStorage("saveStatus",'0');
+	sessionStorage.setItem("saveStatus",'0');
 }
