@@ -5,26 +5,43 @@ let result;										//score
 let person;										//player name
 let currentQuiz;								//quiz name
 const quizFiles = ["quiz1","quiz2","quiz3"];	//quizzes available
-const previousQuiz = [];						//quizzes played
+var quizList = [];								//quizzes in play
 let ingredient;									//current question recipe name
-let instructions;								//array of current recipe
+let instructions;
+let check;								//array of current recipe
 
 /*Runs on quiz.html page load
 TEST: is there a game in progress?
 If so get variables
+
+
+
+
 If not, set variables and select a new quiz
 Get questions and display
 */
 async function newGame() {
-	if (sessionStorage.getItem("saveStatus") == '1'){
-		resumeQuiz();
+	check = sessionStorage.getItem("saveStatus");
+	
+if (check > 0){
+	
+	switch (true){
+		case check == 2:
+			resumeQuiz();
+		case check == 1:
+			currentQuestion = 0;
+			result = 0;
+			quizList = JSON.parse(sessionStorage.getItem("previousQ"));
+			quizSelector();			
+		}
 	} else {
-		currentQuestion = 0;
-		result = 0;
-		quizSelector();
-		checkQuiz();
-	}
-	sessionStorage.setItem("saveStatus",'0');
+			quizList = [...quizFiles];
+			currentQuestion = 0;
+			result = 0;
+			quizSelector();
+	}			
+		
+	
 	questions = await getJSON('Quizzes/' + currentQuiz);
 	displayQuestion();
 }
@@ -61,8 +78,7 @@ function processAnswer(answer) {
 		currentQuestion++;
 		displayQuestion();
 	} else {
-		sessionStorage.setItem("outOf",currentQuestion);
-		sessionStorage.setItem("recipe",ingredient);
+		setStatus();
 		document.location.href="results.html";
 	}
 }
@@ -95,31 +111,32 @@ async function getJSON(fileName){
 
 //Puts entries into results.html, including rating
 function results(){
+	
 	let a = sessionStorage.getItem("score");
 	let b = sessionStorage.getItem("outOf");	
 	b++;
 	c = getRating(a,b);
 	let text = "Thank you " +sessionStorage.getItem("username") +" your score is: " +a +" out of " +b +", you are a " +c +"<br>  Thanks for playing Food Quiz";
 	document.getElementById("gameOver").innerHTML = text;
-	//endGame();
+	endGame();
 }
 
 //Random quiz selector
 async function quizSelector(){	
-	let x = Math.floor(Math.random()*3);
-	currentQuiz = quizFiles[x];
+	let x = Math.floor(Math.random()*quizList.length);
+	currentQuiz = quizList[x];
+	var removed = quizList.splice(x,1);
 }
 
+/*
 //Checks if all quizzes have been ran, if so ends the game - NEEDS WORK!!!
 function checkQuiz() {
-	while (previousQuiz.indexOf(currentQuiz) > -1 && previousQuiz.length < quizFiles.length){
+	if (quizList.indexOf(currentQuiz) > -1){
 		quizSelector();
-	} if (previousQuiz.length == quizFiles.length){
+	} else (quizList.length == quizFiles.length){
 		endGame();
-	} else {
-		previousQuiz.push(currentQuiz);
 	}
-}
+}*/
 
 //Rates the users score
 function getRating(mark, numOf){
@@ -147,8 +164,8 @@ async function getRecipe(){
 
 /*Put content into recipe.html
 Test: is mid-quiz?
-If not, set button text & onclick to Home
 If so set button text & onclick to Quiz
+If not, set button text & onclick to Home
 */
 function displayRecipe(){
 	let r = instructions;
@@ -160,7 +177,7 @@ function displayRecipe(){
 	recipe5.innerHTML = r.recipe5;
 	aside1.innerHTML = r.aside1;
 	
-	if (sessionStorage.getItem("saveStatus") == '1'){
+	if (sessionStorage.getItem("saveStatus") == '2'){
 		nextPage.innerHTML = "Next question";
 		document.getElementById("nextPage").setAttribute("onclick", "window.location.href='quiz.html';");
 	} else {
@@ -175,17 +192,26 @@ async function resumeQuiz(){
 	currentQuestion++;
 }
 
+function endGame(){
+	getStatus();
+	sessionStorage.setItem("saveStatus",'1');
+	//let y = quizList[0];
+	endGameTest.innerHTML = "The current status of quizList is: " + quizList;
+}
+
 //Getter & Setter for mid-game status
 function setStatus(){
 	sessionStorage.setItem("currentQuestion",currentQuestion);
 	sessionStorage.setItem("result",result);
 	sessionStorage.setItem("currentQuiz",currentQuiz);
 	sessionStorage.setItem("recipe",ingredient);
-	sessionStorage.setItem("saveStatus",'1');
+	sessionStorage.setItem("saveStatus",'2');
+	sessionStorage.setItem("previousQ", JSON.stringify(quizList));
 }
 
 function getStatus(){
 	currentQuestion = sessionStorage.getItem("currentQuestion");
 	result = sessionStorage.getItem("result");
 	currentQuiz = sessionStorage.getItem("currentQuiz");
+	quizList = JSON.parse(sessionStorage.getItem("previousQ"));
 }
