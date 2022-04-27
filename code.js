@@ -1,49 +1,20 @@
 //declare global variables
-let questions;
-let currentQuestion;
-let result;
-let person;
-let currentQuiz;
-const quizFiles = ["quiz1","quiz2","quiz3"];
-const previousQuiz = [];
-let ingredient;
-let instructions;
+let questions;									//array of questions in quiz
+let currentQuestion;							//current array position
+let result;										//score
+let person;										//player name
+let currentQuiz;								//quiz name
+const quizFiles = ["quiz1","quiz2","quiz3"];	//quizzes available
+const previousQuiz = [];						//quizzes played
+let ingredient;									//current question recipe name
+let instructions;								//array of current recipe
 
-function displayQuestion() {
-	
-	let q = questions[currentQuestion];
-	
-	question.innerHTML = q.question;
-	answerA.innerHTML = q.answerA;
-	answerB.innerHTML = q.answerB;
-	answerC.innerHTML = q.answerC;
-	answerD.innerHTML = q.answerD;
-	document.documentElement.className = q.scheme;
-	ingredient = q.recipe1;
-}
-
-function processAnswer(answer) {
-	if (answer == questions[currentQuestion].correct){
-		result++;
-		sessionStorage.setItem("score",result);
-	} else {
-		setStatus();
-		document.location.href="recipe.html";
-		
-	}
-	
-	if (currentQuestion < (questions.length-1)){
-		currentQuestion++;
-		displayQuestion();
-	} else {
-		sessionStorage.setItem("outOf",currentQuestion);
-		sessionStorage.setItem("recipe",ingredient);
-		document.location.href="results.html";
-		
-	}
-}
-
-
+/*Runs on quiz.html page load
+TEST: is there a game in progress?
+If so get variables
+If not, set variables and select a new quiz
+Get questions and display
+*/
 async function newGame() {
 	if (sessionStorage.getItem("saveStatus") == '1'){
 		resumeQuiz();
@@ -56,9 +27,47 @@ async function newGame() {
 	sessionStorage.setItem("saveStatus",'0');
 	questions = await getJSON('Quizzes/' + currentQuiz);
 	displayQuestion();
-
 }
 
+//Put questions into quiz.html
+function displayQuestion() {
+	let q = questions[currentQuestion];
+	question.innerHTML = q.question;
+	answerA.innerHTML = q.answerA;
+	answerB.innerHTML = q.answerB;
+	answerC.innerHTML = q.answerC;
+	answerD.innerHTML = q.answerD;
+	document.documentElement.className = q.scheme;
+	ingredient = q.recipe1;
+}
+
+/*Processes the answer and takes following possible actions:
+Increment score and store it
+Save status and load recipe
+TEST: is it the last question?
+If not, get the next question
+If so store the number of questions and current recipe, load results.html
+*/
+function processAnswer(answer) {
+	if (answer == questions[currentQuestion].correct){
+		result++;
+		sessionStorage.setItem("score",result);
+	} else {
+		setStatus();
+		document.location.href="recipe.html";
+	}
+	
+	if (currentQuestion < (questions.length-1)){
+		currentQuestion++;
+		displayQuestion();
+	} else {
+		sessionStorage.setItem("outOf",currentQuestion);
+		sessionStorage.setItem("recipe",ingredient);
+		document.location.href="results.html";
+	}
+}
+
+//Get player name  - NEEDS WORK!!!
 function getName() {
 	/*Currently echoes to screen, stores in sessionStorage */
 	
@@ -73,6 +82,7 @@ function getName() {
   document.getElementById("demo").innerHTML = text;
 }
 
+//Reads requested JSON file and returns
 async function getJSON(fileName){
 	let url = fileName +'.JSON';
 	try {
@@ -83,6 +93,7 @@ async function getJSON(fileName){
 	}
 }
 
+//Puts entries into results.html, including rating
 function results(){
 	let a = sessionStorage.getItem("score");
 	let b = sessionStorage.getItem("outOf");	
@@ -93,11 +104,13 @@ function results(){
 	//endGame();
 }
 
+//Random quiz selector
 async function quizSelector(){	
 	let x = Math.floor(Math.random()*3);
 	currentQuiz = quizFiles[x];
 }
 
+//Checks if all quizzes have been ran, if so ends the game - NEEDS WORK!!!
 function checkQuiz() {
 	while (previousQuiz.indexOf(currentQuiz) > -1 && previousQuiz.length < quizFiles.length){
 		quizSelector();
@@ -108,6 +121,7 @@ function checkQuiz() {
 	}
 }
 
+//Rates the users score
 function getRating(mark, numOf){
 	let text;
 	percent = (mark/numOf)*100;
@@ -124,14 +138,19 @@ function getRating(mark, numOf){
 	return text;
 }
 
+//Gets the recipe and passes to display function
 async function getRecipe(){
 	recipe = sessionStorage.getItem("recipe");
 	instructions = await getJSON('Recipes/' + recipe);
 	displayRecipe();	
 }
 
+/*Put content into recipe.html
+Test: is mid-quiz?
+If so set button text & onclick to Quiz
+If not, set button text & onclick to Home
+*/
 function displayRecipe(){
-	
 	let r = instructions;
 	requirements.innerHTML = r.ingredients;
 	recipe1.innerHTML = r.recipe1;
@@ -141,7 +160,6 @@ function displayRecipe(){
 	recipe5.innerHTML = r.recipe5;
 	aside1.innerHTML = r.aside1;
 	
-	/*If saveStatus = 1 button = Next question else button = home */
 	if (sessionStorage.getItem("saveStatus") == '1'){
 		nextPage.innerHTML = "Next question";
 		document.getElementById("nextPage").setAttribute("onclick", "window.location.href='quiz.html';");
@@ -151,11 +169,13 @@ function displayRecipe(){
 	}
 }
 
+//Get the current status and move counter to next question
 async function resumeQuiz(){
 	getStatus();	
 	currentQuestion++;
 }
 
+//Getter & Setter for mid-game status
 function setStatus(){
 	sessionStorage.setItem("currentQuestion",currentQuestion);
 	sessionStorage.setItem("result",result);
