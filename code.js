@@ -162,13 +162,17 @@ function endGame(){
 	}
 }
 
+/*Saves score to local storage
+Passed the rating from results() and retrieves username from sessionStorage
+Creates score object from both variables
+If highScore already exists in localStorage retrieves and adds score,
+else adds score to empty variable
+Sorts and stores to localStorage*/
 function saveScore(rating){
 	let score = {};
 	score['name'] = sessionStorage.getItem("username");
 	score['mark'] = rating;
-	//test
-	console.log(score);
-	//endTest
+	
 	check = JSON.parse(localStorage.getItem("scoreList"));
 	if (check){
 		highScore = JSON.parse(localStorage.getItem("scoreList"));
@@ -176,24 +180,33 @@ function saveScore(rating){
 	} else {
 	highScore.push(score);
 	}
+	highScore = highScore.reverse(function (obj1, obj2) {
+		return obj1.mark.localeCompare(obj2.mark);
+	});
 	localStorage.setItem("scoreList", JSON.stringify(highScore));
 	console.log(highScore);
 }
 
+//Retrieves scores from local storage, displays in table
+function getScores(){
+	var hst = document.getElementById("scoreboard");
+	var retrievedScores = JSON.parse(localStorage.getItem("scoreList"));
+
+for (var i = 0; i < retrievedScores.length; i++) {
+    hst.innerHTML += "<tr><td>" + retrievedScores[i].name + "</td><td>" + retrievedScores[i].mark + "</td></tr>";
+	}
+}
+
 /****UTILITY FUNCTIONS BEYOND THIS POINT****/
 
-//Get player name  - NEEDS WORK TO NULL
-function getName() {
-	/*Currently stores in sessionStorage */
-	
-  let text;
+//Get player name - MAKE MANDATORY???
+function getName() {  
   person = prompt("Please enter your name:", "");
   if (person == null || person == "") {
-    text = "User cancelled the prompt.";
+    person = prompt("Please enter your name:", "");
   } else {
 	sessionStorage.setItem("username",person);
   }
-  document.getElementById("demo").innerHTML = text;
 }
 
 //Reads requested JSON file and returns
