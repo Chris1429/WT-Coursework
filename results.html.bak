@@ -9,13 +9,12 @@
 	<body onload="results()">
 	<header><img src="images/header.jpeg" style="max-width:100%"></header>
 	<main>
-		<h2>Food Quiz</h2>
-		
-		<p id="gameOver"></p>
-		<button id="newGame" class="button button1" title="Press for another game" onclick="window.location.href='quiz.html';"></button>
+		<p id="gameOver"></p><br>
+		<article class="grid-container">
+		<button id="nextGame" class="button button1" title="Press for another game" onclick="window.location.href='quiz.html';"></button>
 		<button id="homePage" class="button button2" title="Press to return to the home page" onclick="window.location.href='index.html';">Home page</button>
 		<button id="viewRecipe" class="button button3" title="Press to see the recipe" onclick="window.location.href='recipe.html';">View recipe</button>
-		<p id="test"></p>
+		</article>
 	</main>
 	</body>
 	

@@ -31,6 +31,7 @@ async function newGame() {
 			case check == 1:
 				currentQuestion = 0;
 				result = 0;
+				sessionStorage.setItem("score",result);
 				quizList = JSON.parse(sessionStorage.getItem("previousQ"));
 				quizSelector();
 			}
@@ -191,9 +192,10 @@ async function resumeQuiz(){
 	currentQuestion++;
 }
 
+
 function endGame(){
 	quizList = JSON.parse(sessionStorage.getItem("previousQ"));
-	test.innerHTML = "quizList is: " + quizList;
+	
 	if (quizList.length > 0){
 		nextGame.innerHTML = "New game";
 		sessionStorage.setItem("saveStatus",1);
@@ -203,6 +205,12 @@ function endGame(){
 		document.getElementById("nextGame").title = "";
 		sessionStorage.setItem("saveStatus",0);
 	}
+}
+
+//Resets game if you return to homepage
+function goHome(){
+	sessionStorage.setItem("saveStatus",0);
+	document.location.href="index.html";
 }
 
 /*
