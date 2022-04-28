@@ -23,7 +23,6 @@ async function newGame() {
 	check = sessionStorage.getItem("saveStatus");
 	
 	if (check > 0){
-	
 		switch (true){
 			case check > 1:
 				resumeQuiz();
@@ -46,7 +45,7 @@ async function newGame() {
 	displayQuestion();
 }
 
-//Put questions into quiz.html
+//Put questions into quiz.html and set colour scheme
 function displayQuestion() {
 	let q = questions[currentQuestion];
 	question.innerHTML = q.question;
@@ -83,61 +82,6 @@ function processAnswer(answer) {
 	}
 }
 
-//Get player name  - NEEDS WORK!!!
-function getName() {
-	/*Currently echoes to screen, stores in sessionStorage */
-	
-  let text;
-  person = prompt("Please enter your name:", "");
-  if (person == null || person == "") {
-    text = "User cancelled the prompt.";
-  } else {
-	sessionStorage.setItem("username",person);
-    text = "Hello " + sessionStorage.getItem("username") + "! How are you today?";
-  }
-  document.getElementById("demo").innerHTML = text;
-}
-
-//Reads requested JSON file and returns
-async function getJSON(fileName){
-	let url = fileName +'.JSON';
-	try {
-		let file = await fetch(url);
-		return await file.json();
-	} catch (error) {
-		console.log(error);
-	}
-}
-
-//Puts entries into results.html, including rating
-function results(){
-	endGame();
-	let a = sessionStorage.getItem("score");
-	let b = sessionStorage.getItem("outOf");
-	c = getRating(a,b);
-	let text = "Thank you " +sessionStorage.getItem("username") +" your score is: " +a +" out of " +b +", you are a " +c +"<br>  Thanks for playing Food Quiz";
-	document.getElementById("gameOver").innerHTML = text;
-	//saveScore(c);
-	
-}
-
-//Random quiz selector
-async function quizSelector(){	
-	let x = Math.floor(Math.random()*quizList.length);
-	currentQuiz = quizList[x];
-	var removed = quizList.splice(x,1);
-}
-
-/*
-//Checks if all quizzes have been ran, if so ends the game - NEEDS WORK!!!
-function checkQuiz() {
-	if (quizList.indexOf(currentQuiz) > -1){
-		quizSelector();
-	} else (quizList.length == quizFiles.length){
-		endGame();
-	}
-}*/
-
 //Rates the users score
 function getRating(mark, numOf){
 	let text;
@@ -148,7 +92,8 @@ function getRating(mark, numOf){
 			text = "Masterchef! Congratulations!";
 			break;
 		case percent <= 25:
-			text = "pan scrubber, keep trying!";
+			text = "a pan scrubber, keep trying!";
+			break;
 		default:
 			text = "kitchen hand, keep learning!";
 	}
@@ -163,7 +108,7 @@ async function getRecipe(){
 }
 
 /*Put content into recipe.html
-Test: is mid-quiz?
+TEST: is mid-quiz?
 If so set button text & onclick to Quiz
 If not, set button text & onclick to Home
 */
@@ -181,18 +126,27 @@ function displayRecipe(){
 		nextPage.innerHTML = "Next question";
 		document.getElementById("nextPage").setAttribute("onclick", "window.location.href='quiz.html';");
 	} else {
-		nextPage.innerHTML = "Return home";
-		document.getElementById("nextPage").setAttribute("onclick", "window.location.href='index.html';");
+		nextPage.innerHTML = "Return to Results";
+		document.getElementById("nextPage").setAttribute("onclick", "window.location.href='results.html';");
 	}
 }
 
-//Get the current status and move counter to next question
-async function resumeQuiz(){
-	getStatus();	
-	currentQuestion++;
+//Puts entries into results.html, including rating
+function results(){
+	endGame();
+	let a = sessionStorage.getItem("score");
+	let b = sessionStorage.getItem("outOf");
+	c = getRating(a,b);
+	let text = "Thank you " +sessionStorage.getItem("username") +" your score is: " +a +" out of " +b +", you are a " +c +"<br>  Thanks for playing Food Quiz";
+	document.getElementById("gameOver").innerHTML = text;
+	//saveScore(c);
+	
 }
 
-
+/*Controls how many rounds can be played
+TEST: Have all quizzes been played?
+If not, make button allow another round
+If so, disable button*/
 function endGame(){
 	quizList = JSON.parse(sessionStorage.getItem("previousQ"));
 	
@@ -203,8 +157,52 @@ function endGame(){
 		nextGame.innerHTML = "GAME OVER";
 		document.getElementById("nextGame").className = "button disabled";
 		document.getElementById("nextGame").title = "";
-		sessionStorage.setItem("saveStatus",0);
 	}
+}
+/*
+functions saveScore(rating){
+
+}
+*/
+
+/****UTILITY FUNCTIONS BEYOND THIS POINT****/
+
+//Get player name  - NEEDS WORK TO NULL
+function getName() {
+	/*Currently stores in sessionStorage */
+	
+  let text;
+  person = prompt("Please enter your name:", "");
+  if (person == null || person == "") {
+    text = "User cancelled the prompt.";
+  } else {
+	sessionStorage.setItem("username",person);
+  }
+  document.getElementById("demo").innerHTML = text;
+}
+
+//Reads requested JSON file and returns
+async function getJSON(fileName){
+	let url = fileName +'.JSON';
+	try {
+		let file = await fetch(url);
+		return await file.json();
+	} catch (error) {
+		console.log(error);
+	}
+}
+
+//Random quiz selector
+async function quizSelector(){	
+	let x = Math.floor(Math.random()*quizList.length);
+	currentQuiz = quizList[x];
+	var removed = quizList.splice(x,1);
+}
+
+//Get the current status and move counter to next question
+async function resumeQuiz(){
+	getStatus();	
+	currentQuestion++;
 }
 
 //Resets game if you return to homepage
@@ -213,12 +211,7 @@ function goHome(){
 	document.location.href="index.html";
 }
 
-/*
-functions saveScore(rating){
-
-}
-*/
-//Getter & Setter for mid-game status
+//Getter & Setter for game status
 function setStatus(){
 	sessionStorage.setItem("currentQuestion",currentQuestion);
 	sessionStorage.setItem("result",result);
