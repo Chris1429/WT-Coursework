@@ -12,12 +12,11 @@ let check;								//array of current recipe
 
 /*Runs on quiz.html page load
 TEST: is there a game in progress?
-If so get variables
+If so TEST: is it mid-game?
+If so resume
+If not reset variables, load quizList, select quiz
 
-
-
-
-If not, set variables and select a new quiz
+If no game in progress, set variables and select quiz
 Get questions and display
 */
 async function newGame() {
@@ -26,13 +25,14 @@ async function newGame() {
 	if (check > 0){
 	
 		switch (true){
-			case check == 2:
+			case check > 1:
 				resumeQuiz();
+				break;
 			case check == 1:
 				currentQuestion = 0;
 				result = 0;
 				quizList = JSON.parse(sessionStorage.getItem("previousQ"));
-				quizSelector();			
+				quizSelector();
 			}
 	} else {
 			quizList = [...quizFiles];
@@ -41,7 +41,6 @@ async function newGame() {
 			quizSelector();
 	}			
 		
-	
 	questions = await getJSON('Quizzes/' + currentQuiz);
 	displayQuestion();
 }
@@ -113,8 +112,7 @@ async function getJSON(fileName){
 function results(){
 	
 	let a = sessionStorage.getItem("score");
-	let b = sessionStorage.getItem("outOf");	
-	b++;
+	let b = sessionStorage.getItem("outOf");
 	c = getRating(a,b);
 	let text = "Thank you " +sessionStorage.getItem("username") +" your score is: " +a +" out of " +b +", you are a " +c +"<br>  Thanks for playing Food Quiz";
 	document.getElementById("gameOver").innerHTML = text;
@@ -177,7 +175,7 @@ function displayRecipe(){
 	recipe5.innerHTML = r.recipe5;
 	aside1.innerHTML = r.aside1;
 	
-	if (sessionStorage.getItem("saveStatus") == '2'){
+	if (sessionStorage.getItem("saveStatus") == 2){
 		nextPage.innerHTML = "Next question";
 		document.getElementById("nextPage").setAttribute("onclick", "window.location.href='quiz.html';");
 	} else {
@@ -194,7 +192,7 @@ async function resumeQuiz(){
 
 function endGame(){
 	getStatus();
-	sessionStorage.setItem("saveStatus",'1');
+	sessionStorage.setItem("saveStatus",1);
 	//let y = quizList[0];
 	endGameTest.innerHTML = "The current status of quizList is: " + quizList;
 }
@@ -205,7 +203,8 @@ function setStatus(){
 	sessionStorage.setItem("result",result);
 	sessionStorage.setItem("currentQuiz",currentQuiz);
 	sessionStorage.setItem("recipe",ingredient);
-	sessionStorage.setItem("saveStatus",'2');
+	sessionStorage.setItem("outOf",questions.length);
+	sessionStorage.setItem("saveStatus",2);
 	sessionStorage.setItem("previousQ", JSON.stringify(quizList));
 }
 
