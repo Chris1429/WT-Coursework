@@ -110,13 +110,14 @@ async function getJSON(fileName){
 
 //Puts entries into results.html, including rating
 function results(){
-	
+	endGame();
 	let a = sessionStorage.getItem("score");
 	let b = sessionStorage.getItem("outOf");
 	c = getRating(a,b);
 	let text = "Thank you " +sessionStorage.getItem("username") +" your score is: " +a +" out of " +b +", you are a " +c +"<br>  Thanks for playing Food Quiz";
 	document.getElementById("gameOver").innerHTML = text;
-	endGame();
+	//saveScore(c);
+	
 }
 
 //Random quiz selector
@@ -191,12 +192,24 @@ async function resumeQuiz(){
 }
 
 function endGame(){
-	getStatus();
-	sessionStorage.setItem("saveStatus",1);
-	//let y = quizList[0];
-	endGameTest.innerHTML = "The current status of quizList is: " + quizList;
+	quizList = JSON.parse(sessionStorage.getItem("previousQ"));
+	test.innerHTML = "quizList is: " + quizList;
+	if (quizList.length > 0){
+		nextGame.innerHTML = "New game";
+		sessionStorage.setItem("saveStatus",1);
+	} else {
+		nextGame.innerHTML = "GAME OVER";
+		document.getElementById("nextGame").className = "button disabled";
+		document.getElementById("nextGame").title = "";
+		sessionStorage.setItem("saveStatus",0);
+	}
 }
 
+/*
+functions saveScore(rating){
+
+}
+*/
 //Getter & Setter for mid-game status
 function setStatus(){
 	sessionStorage.setItem("currentQuestion",currentQuestion);
