@@ -190,6 +190,7 @@ function saveScore(rating){
 	highScore = highScore.sort(function (score1, score2) {
 		return score1.mark.localeCompare(score2.mark);
 	});
+	highScore.reverse();
 	localStorage.setItem("scoreList", JSON.stringify(highScore));
 	console.log(highScore);
 }
@@ -200,7 +201,7 @@ function getScores(){
 	var highScore = JSON.parse(localStorage.getItem("scoreList"));
 
 	for (var i = 0; i < highScore.length; i++) {
-    board.innerHTML += "<tr><td>" + highScore[i].name + "</td><td>" + highScore[i].mark + "</td></tr>";
+    board.innerHTML += "<tr><th>" + highScore[i].name + "</th><th>" + highScore[i].mark + "</th></tr>";
 	}
 }
 

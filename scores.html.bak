@@ -3,15 +3,17 @@
 	<head>
 		<meta charset="UTF-8" />
 		<script src="code.js"></script>
-		<link href="results.css" rel="stylesheet" type="text/css">
+		<link href="scores.css" rel="stylesheet" type="text/css">
 	</head>
 	
-	<body>
+	<body onload="getScores()">
 	<header><img src="images/header.jpeg" style="max-width:100%"></header>
 	<main>
+		<article >
 		<table id="scoreboard">
-			<tr><td>Name</td><td>Rating</td></tr>
+			<tr><th><h3>Name</h3></th><th><h3>Rating</h3></th></tr>
 		</table>
+		</article>
 	</main>
 	</body>
 	

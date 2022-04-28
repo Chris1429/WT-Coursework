@@ -1,0 +1,36 @@
+body {
+	margin: 0;
+	padding: 0;
+	max-width: inherit;
+	background: url(background.jpg) no-repeat center fixed;
+	background-size: cover;
+}
+
+header, footer {
+	text-align: center;
+	padding: 0.3em 0;
+	background-color: #87ceeb;
+}
+
+table, th, td {
+	border: 1px solid;
+	border-collapse: collapse;
+	width: 50%;	
+}
+
+th, td {
+  text-align: center;
+  padding: 12px;
+}
+
+th {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.centre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
