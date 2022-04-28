@@ -7,9 +7,9 @@
 	</head>
 	
 	<body onload="getScores()">
-	<header><img src="images/header.jpeg" style="max-width:100%"></header>
+	<header><img src="images/header.jpeg" style="max-width:60%"></header>
 	<main>
-		<article >
+		<article class="centre">
 		<table id="scoreboard">
 			<tr><th><h3>Name</h3></th><th><h3>Rating</h3></th></tr>
 		</table>
