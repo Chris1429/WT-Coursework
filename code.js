@@ -11,7 +11,8 @@ let instructions;
 let check;								//array of current recipe
 var highScore = [];
 
-/*Runs on quiz.html page load
+/*
+Runs on quiz.html page load
 TEST: is there a game in progress?
 If so TEST: is it mid-game?
 If so resume
@@ -58,7 +59,8 @@ function displayQuestion() {
 	ingredient = q.recipe1;
 }
 
-/*Processes the answer and takes following possible actions:
+/*
+Processes the answer and takes following possible actions:
 Increment score and store it
 Save status and load recipe
 TEST: is it the last question?
@@ -108,7 +110,8 @@ async function getRecipe(){
 	displayRecipe();	
 }
 
-/*Put content into recipe.html
+/*
+Put content into recipe.html
 TEST: is mid-quiz?
 If so set button text & onclick to Quiz
 If not, set button text & onclick to Home
@@ -144,10 +147,12 @@ function results(){
 	
 }
 
-/*Controls how many rounds can be played
+/*
+Controls how many rounds can be played
 TEST: Have all quizzes been played?
 If not, make button allow another round
-If so, disable button*/
+If so, disable button
+*/
 function endGame(){
 	quizList = JSON.parse(sessionStorage.getItem("previousQ"));
 	
@@ -162,12 +167,14 @@ function endGame(){
 	}
 }
 
-/*Saves score to local storage
+/*
+Saves score to local storage
 Passed the rating from results() and retrieves username from sessionStorage
 Creates score object from both variables
 If highScore already exists in localStorage retrieves and adds score,
 else adds score to empty variable
-Sorts and stores to localStorage*/
+Sorts and stores to localStorage
+*/
 function saveScore(rating){
 	let score = {};
 	score['name'] = sessionStorage.getItem("username");
@@ -189,15 +196,17 @@ function saveScore(rating){
 
 //Retrieves scores from local storage, displays in table
 function getScores(){
-	var hst = document.getElementById("scoreboard");
-	var retrievedScores = JSON.parse(localStorage.getItem("scoreList"));
+	var board = document.getElementById("scoreboard");
+	var highScore = JSON.parse(localStorage.getItem("scoreList"));
 
-for (var i = 0; i < retrievedScores.length; i++) {
-    hst.innerHTML += "<tr><td>" + retrievedScores[i].name + "</td><td>" + retrievedScores[i].mark + "</td></tr>";
+for (var i = 0; i < highScore.length; i++) {
+    board.innerHTML += "<tr><td>" + highScore[i].name + "</td><td>" + highScore[i].mark + "</td></tr>";
 	}
 }
 
+/*******************************************/
 /****UTILITY FUNCTIONS BEYOND THIS POINT****/
+/*******************************************/
 
 //Get player name - MAKE MANDATORY???
 function getName() {  
@@ -240,6 +249,13 @@ function goHome(){
 }
 
 //Getter & Setter for game status
+function getStatus(){
+	currentQuestion = sessionStorage.getItem("currentQuestion");
+	result = sessionStorage.getItem("result");
+	currentQuiz = sessionStorage.getItem("currentQuiz");
+	quizList = JSON.parse(sessionStorage.getItem("previousQ"));
+}
+
 function setStatus(){
 	sessionStorage.setItem("currentQuestion",currentQuestion);
 	sessionStorage.setItem("result",result);
@@ -250,9 +266,3 @@ function setStatus(){
 	sessionStorage.setItem("previousQ", JSON.stringify(quizList));
 }
 
-function getStatus(){
-	currentQuestion = sessionStorage.getItem("currentQuestion");
-	result = sessionStorage.getItem("result");
-	currentQuiz = sessionStorage.getItem("currentQuiz");
-	quizList = JSON.parse(sessionStorage.getItem("previousQ"));
-}
