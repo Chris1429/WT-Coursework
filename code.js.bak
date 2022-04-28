@@ -187,23 +187,19 @@ function saveScore(rating){
 	} else {
 	highScore.push(score);
 	}
-	highScore = highScore.reverse(function (obj1, obj2) {
-		return obj1.mark.localeCompare(obj2.mark);
+	highScore = highScore.sort(function (score1, score2) {
+		return score1.mark.localeCompare(score2.mark);
 	});
 	localStorage.setItem("scoreList", JSON.stringify(highScore));
 	console.log(highScore);
 }
 
-//Retrieves scores from local storage, displays in table
+//Retrieves scores from local storage, displays in table - PUT LIMIT ON TABLE SIZE
 function getScores(){
-/*let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,
-	width=600,height=300,left=250,top=100`;
-	setTimeout(() => window.open('scores.html', 'Highest Scores', params), 500);
-	*/
 	var board = document.getElementById("scoreboard");
 	var highScore = JSON.parse(localStorage.getItem("scoreList"));
 
-for (var i = 0; i < highScore.length; i++) {
+	for (var i = 0; i < highScore.length; i++) {
     board.innerHTML += "<tr><td>" + highScore[i].name + "</td><td>" + highScore[i].mark + "</td></tr>";
 	}
 }
