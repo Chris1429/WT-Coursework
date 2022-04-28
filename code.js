@@ -9,6 +9,7 @@ var quizList = [];								//quizzes in play
 let ingredient;									//current question recipe name
 let instructions;
 let check;								//array of current recipe
+var highScore = [];
 
 /*Runs on quiz.html page load
 TEST: is there a game in progress?
@@ -139,7 +140,7 @@ function results(){
 	c = getRating(a,b);
 	let text = "Thank you " +sessionStorage.getItem("username") +" your score is: " +a +" out of " +b +", you are a " +c +"<br>  Thanks for playing Food Quiz";
 	document.getElementById("gameOver").innerHTML = text;
-	//saveScore(c);
+	saveScore(c);
 	
 }
 
@@ -160,12 +161,24 @@ function endGame(){
 		sessionStorage.setItem("saveStatus",0);
 	}
 }
-/*
-functions saveScore(rating){
-	
 
+function saveScore(rating){
+	let score = {};
+	score['name'] = sessionStorage.getItem("username");
+	score['mark'] = rating;
+	//test
+	console.log(score);
+	//endTest
+	check = JSON.parse(localStorage.getItem("scoreList"));
+	if (check){
+		highScore = JSON.parse(localStorage.getItem("scoreList"));
+		highScore.push(score);
+	} else {
+	highScore.push(score);
+	}
+	localStorage.setItem("scoreList", JSON.stringify(highScore));
+	console.log(highScore);
 }
-*/
 
 /****UTILITY FUNCTIONS BEYOND THIS POINT****/
 
