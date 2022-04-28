@@ -1,9 +1,9 @@
 {
-	"ingredients" : "<h2>Ingredients:</h2><ul><li>Butter (25g)</li><li>Plain flour(25g)</li></ul>",
-	"recipe1" : "1. Weigh equal quantities of flour and butter and place into your saucepan.",
-	"recipe2" : "<img src='images/Roux_blanc.jpg' style='max-width:150px'>2. Place over a medium heat and stir gently, combining the melted butter with the flour to form a smooth paste.",
-	"recipe3" : "3. Carry on heating for a minute or so to 'cook out' the flour, darkening the roux slightly.",
-	"recipe4" : "3. Carry on heating for a minute or so to 'cook out' the flour, darkening the roux slightly.",
-	"recipe5" : "If appropriate, leave to cool.",
-	"aside1" : "<h2>Did you know....</h2>Some stuff about a roux you might enjoy"
+	"ingredients" : "<h2>Ingredients:</h2><ul><li>York ham</li><li>Carrot (125g)</li><li>Onion (125g)</li><li>Parsley stalks (30g)</li><li>Butter (50g)</li><li>Pinch of thyme & crushed bayleaf</li><li>Mushroom trimmings</li><li>Sufficient Pouilly (or alternative sauvignon blanc)</li></ul>",
+	"recipe1" : "Ham roasts are cooked using many different methods with a variety of glazes, some with more success than others.  However, one of the best ways described in Escoffier's 'Le Guide Culinaire' is Jambo a la Bourguignonne.",
+	"recipe2" : "To start, soak the ham in cold water for six hours.  Whilst it is soaking, prepare the Mirepoix Bordelaise.",
+	"recipe3" : "Cut the carrot, onion and parsley into a fine Brunoise, then place into a small pan together with the seasoning and butter.  Stew gently until tender then place into the braising pan.",
+	"recipe4" : "Drain the ham, place in a large pot with plenty of cold water and bring to the boil.  Simmer for 20 minutes per 500g, then place into the braising pan along with the mirepoix, mushroom trimmings and wine.  Place in a warm oven (180C) for half an hour.",
+	"recipe5" : "Pass the braising liquid through a fine sieve then combine with some thickly sliced mushrooms fried in butter to make a sauce to have with the hot ham."
+	"aside1" : "<h2>Did you know....</h2>Auguste Escoffier published Le Guide Culinaire in 1903 and<br> it's still used by chefs as a major reference today.<p>Ham is pork from a leg cut that has been preserved by wet or dry curing,<br> with or without smoking.</p><p>The preserving of pork leg as ham has a long history, with traces of<br> production of cured ham among the Etruscan civilization<br> known in the 6th and 5th century BC!</p><p><iframe width='375' height='210' src='https://www.youtube.com/embed/0k-euqes3k4' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe></p>"
 }
