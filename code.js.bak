@@ -161,13 +161,14 @@ function endGame(){
 }
 /*
 functions saveScore(rating){
+	
 
 }
 */
 
 /****UTILITY FUNCTIONS BEYOND THIS POINT****/
 
-//Get player name  - NEEDS WORK!!!
+//Get player name  - NEEDS WORK TO NULL
 function getName() {
 	/*Currently stores in sessionStorage */
 	
@@ -196,7 +197,7 @@ async function getJSON(fileName){
 async function quizSelector(){	
 	let x = Math.floor(Math.random()*quizList.length);
 	currentQuiz = quizList[x];
-	var removed = quizList.splice(x,1);
+	quizList.splice(x,1);
 }
 
 //Get the current status and move counter to next question

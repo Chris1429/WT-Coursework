@@ -157,10 +157,12 @@ function endGame(){
 		nextGame.innerHTML = "GAME OVER";
 		document.getElementById("nextGame").className = "button disabled";
 		document.getElementById("nextGame").title = "";
+		sessionStorage.setItem("saveStatus",0);
 	}
 }
 /*
 functions saveScore(rating){
+	
 
 }
 */
@@ -196,7 +198,7 @@ async function getJSON(fileName){
 async function quizSelector(){	
 	let x = Math.floor(Math.random()*quizList.length);
 	currentQuiz = quizList[x];
-	var removed = quizList.splice(x,1);
+	quizList.splice(x,1);
 }
 
 //Get the current status and move counter to next question
