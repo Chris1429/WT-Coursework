@@ -195,7 +195,7 @@ function saveScore(rating){
 	console.log(highScore);
 }
 
-//Retrieves scores from local storage, displays in table - PUT LIMIT ON TABLE SIZE
+//Retrieves scores from local storage, displays in table - PUT LIMIT ON TABLE SIZE?
 function getScores(){
 	var board = document.getElementById("scoreboard");
 	var highScore = JSON.parse(localStorage.getItem("scoreList"));

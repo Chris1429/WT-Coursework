@@ -7,13 +7,15 @@
 	</head>
 	
 	<body onload="getScores()">
-	<header><img src="images/header.jpeg" style="max-width:60%"></header>
+	<header><img src="images/header.jpeg" style="max-height:20%"></header>
 	<main>
 		<article class="centre">
 		<table id="scoreboard">
 			<tr><th><h3>Name</h3></th><th><h3>Rating</h3></th></tr>
 		</table>
 		</article>
+		
+		<button type="button" class="button" onclick="alert('Hello world!')">Home page</button>
 	</main>
 	</body>
 	

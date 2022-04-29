@@ -201,7 +201,7 @@ function getScores(){
 	var highScore = JSON.parse(localStorage.getItem("scoreList"));
 
 	for (var i = 0; i < highScore.length; i++) {
-    board.innerHTML += "<tr><th>" + highScore[i].name + "</th><th>" + highScore[i].mark + "</th></tr>";
+    board.innerHTML += "<tr><td>" + highScore[i].name + "</td><td>" + highScore[i].mark + "</td></tr>";
 	}
 }
 
