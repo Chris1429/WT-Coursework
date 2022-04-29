@@ -138,6 +138,7 @@ function displayRecipe(){
 //Puts entries into results.html, including rating
 function results(){
 	endGame();
+	playSound();
 	let a = sessionStorage.getItem("score");
 	let b = sessionStorage.getItem("outOf");
 	c = getRating(a,b);
@@ -216,7 +217,7 @@ function getScores(){
 /*******************************************/
 
 //Get player name - MAKE MANDATORY???
-function getName() {  
+function getName() {
   person = prompt("Please enter your name:", "");
   if (person == null || person == "") {
     person = prompt("Please enter your name:", "");
@@ -273,3 +274,7 @@ function setStatus(){
 	sessionStorage.setItem("previousQ", JSON.stringify(quizList));
 }
 
+function playSound() {
+	var audio = document.getElementById("audio");
+        audio.play();
+}

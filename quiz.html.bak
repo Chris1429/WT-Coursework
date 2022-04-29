@@ -9,7 +9,7 @@
 	<body onload="newGame()">
 	<header><img src="images/header.jpeg" style="max-width:100%"></header>
 	<main>
-	
+		<audio id="audio" src="audio/button.mp3"></audio>
 		<p id="question"></p>
 		
 		<article class="grid-container">
@@ -29,6 +29,7 @@
 		
 		</article>
 	</main>
+		<footer class="footer"><em>A quiz website by Chris Thorpe</em></footer>
 	</body>
 	
 </html>

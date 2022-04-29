@@ -9,22 +9,22 @@
 	<body onload="newGame()">
 	<header><img src="images/header.jpeg" style="max-width:100%"></header>
 	<main>
-	
+		<audio id="audio" src="audio/button.mp3"></audio>
 		<p id="question"></p>
 		
 		<article class="grid-container">
 				
 			<div class ="container">
-				<button type="button" id="answerA" class="button button1" onclick="processAnswer('A')"></button>
+				<button type="button" id="answerA" class="button button1" onclick="playSound(); processAnswer('A')"></button>
 			</div>
 			<div class ="container">
-				<button type="button" id="answerB" class="button button2" onclick="processAnswer('B')"></button>
+				<button type="button" id="answerB" class="button button2" onclick="playSound(); processAnswer('B')"></button>
 			</div>
 			<div class ="container">
-				<button type="button" id="answerC" class="button button3" onclick="processAnswer('C')"></button>
+				<button type="button" id="answerC" class="button button3" onclick="playSound(); processAnswer('C')"></button>
 			</div>
 			<div class ="container">
-				<button type="button" id="answerD" class="button button4" onclick="processAnswer('D')"></button>
+				<button type="button" id="answerD" class="button button4" onclick="playSound(); processAnswer('D')"></button>
 			</div>
 		
 		</article>

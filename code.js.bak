@@ -205,7 +205,7 @@ function getScores(){
 		board.innerHTML += "<tr><td>" + highScore[i].name + "</td><td>" + highScore[i].mark + "</td></tr>";
 		}
 	} else {
-		for (var i = 0; i < 5 i++) {
+		for (var i = 0; i < 5; i++) {
 		board.innerHTML += "<tr><td>" + highScore[i].name + "</td><td>" + highScore[i].mark + "</td></tr>";
 		}
 	}
@@ -216,7 +216,7 @@ function getScores(){
 /*******************************************/
 
 //Get player name - MAKE MANDATORY???
-function getName() {  
+function getName() {
   person = prompt("Please enter your name:", "");
   if (person == null || person == "") {
     person = prompt("Please enter your name:", "");
@@ -273,3 +273,7 @@ function setStatus(){
 	sessionStorage.setItem("previousQ", JSON.stringify(quizList));
 }
 
+function playSound() {
+	var audio = document.getElementById("audio");
+        audio.play();
+}

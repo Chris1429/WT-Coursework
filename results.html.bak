@@ -20,7 +20,6 @@
 			<button type="button" id="viewRecipe" class="button button3" title="Press to see the recipe" onclick="window.location.href='recipe.html';">View recipe</button>
 		</article>
 	</main>
-		<footer class="footer"><em>A quiz website by Chris Thorpe</em></footer>
 	</body>
 	
 </html>
