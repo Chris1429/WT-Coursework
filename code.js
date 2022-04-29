@@ -195,13 +195,19 @@ function saveScore(rating){
 	console.log(highScore);
 }
 
-//Retrieves scores from local storage, displays in table - PUT LIMIT ON TABLE SIZE?
+//Retrieves scores from local storage, displays in table
 function getScores(){
 	var board = document.getElementById("scoreboard");
 	var highScore = JSON.parse(localStorage.getItem("scoreList"));
-
-	for (var i = 0; i < highScore.length; i++) {
-    board.innerHTML += "<tr><td>" + highScore[i].name + "</td><td>" + highScore[i].mark + "</td></tr>";
+	
+	if (highScore.length < 6){
+		for (var i = 0; i < highScore.length; i++) {
+		board.innerHTML += "<tr><td>" + highScore[i].name + "</td><td>" + highScore[i].mark + "</td></tr>";
+		}
+	} else {
+		for (var i = 0; i < 5; i++) {
+		board.innerHTML += "<tr><td>" + highScore[i].name + "</td><td>" + highScore[i].mark + "</td></tr>";
+		}
 	}
 }
 

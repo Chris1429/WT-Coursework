@@ -66,7 +66,7 @@ footer {
 	width: 160px;
 	height: 160px;
 	position: relative;
-	background: 87ceeb;
+	background: #87ceeb;
 }
 .slice1 {
 	width: 150px;

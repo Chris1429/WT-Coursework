@@ -44,6 +44,20 @@ footer {
 	text-align: center;
 	color: var(--text-color);
 }
+/*
+p.contents{  
+color:white; 
+background-color: #87ceeb;
+opacity: 0.6;
+	border-radius: 12px;
+	padding: 15px 32px;
+	text-align: center;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+}*/
 
 :root,
 :root.pasta {

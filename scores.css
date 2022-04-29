@@ -18,7 +18,7 @@ table, th, td {
 	padding: 15px 32px;
 	text-align: center;
 	text-decoration: none;
-	font-size: 16px;
+	font-size: 1.8vw;
 	margin: 4px 2px;
 	cursor: none;
 	background-color: white; 
@@ -27,21 +27,23 @@ table, th, td {
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
-th, td {
-  text-align: center;
-  padding: 12px;
+th, td, tr {
+   text-align: center;
+   padding: 12px;
+   height: 1vh;
 }
 
 th {
 	background-color: #008CBA;
 	color: white;
+	height: 1vh;
 }
 
 .centre {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 35vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50vh;
 }
 
 .button {  
@@ -49,7 +51,7 @@ th {
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
-	font-size: 16px;
+	font-size: 1.8vw;
 	margin: 4px 2px;
 	cursor: pointer;
 	border-radius: 12px;

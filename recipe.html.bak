@@ -8,7 +8,7 @@
 	</head>
 	
 	<body onload="getRecipe()">
-		<header><img src="images/header.jpeg" style="max-width:100%">
+		<header><img src="images/header.jpeg" style="max-width:50%">
 		</header>
 		<menu class="menu">
 			<p id="requirements"></p>
@@ -39,7 +39,7 @@
 		<aside class="aside">
 			<p id="aside1"></p>
 		</aside>
-		<footer class="footer">Random holiday stuff by me</footer>
+		<footer class="footer"><em>A quiz website by Chris Thorpe</em></footer>
 	</body>
 	
 </html>

@@ -12,7 +12,7 @@
 	<header><img src="images/header.jpeg" style="max-width:50%"></header>
 	<main>
 		<article class="centre">
-			<p id="gameOver"></p><br>
+			<p class="end" id="gameOver"></p><br>
 		</article>	
 		<article class="grid-container">
 			<button type="button" id="nextGame" class="button button1" title="Press for another game" onclick="window.location.href='quiz.html';"></button>
@@ -20,6 +20,7 @@
 			<button type="button" id="viewRecipe" class="button button3" title="Press to see the recipe" onclick="window.location.href='recipe.html';">View recipe</button>
 		</article>
 	</main>
+		<footer class="footer"><em>A quiz website by Chris Thorpe</em></footer>
 	</body>
 	
 </html>

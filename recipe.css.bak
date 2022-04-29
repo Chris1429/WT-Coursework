@@ -44,6 +44,20 @@ footer {
 	text-align: center;
 	color: var(--text-color);
 }
+/*
+p.contents{  
+color:white; 
+background-color: #87ceeb;
+/*opacity: 0.6;*/
+	border-radius: 12px;
+	padding: 15px 32px;
+	text-align: center;/*
+	display: inline-block;*/
+	font-size: 16px;
+	margin: 4px 2px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+}*/
 
 :root,
 :root.pasta {
@@ -85,4 +99,20 @@ footer {
 .button:hover {
 	background-color: var(--aside-color);
 	color: var(--alt-bg-color);
+}
+
+.youtube-container {
+position:relative;
+padding-bottom:56.25%;
+padding-top:30px;
+height:0;
+overflow:hidden;
+}
+
+.youtube-container iframe, .youtube-container object, .youtube-container embed {
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
 }

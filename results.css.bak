@@ -10,7 +10,11 @@ header, footer {
 	text-align: center;
 	padding: 0.3em 0;
 	background-color: #87ceeb;
-	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+footer {
+	/*position: relative;*/
+	bottom: 0;
 }
 
 .centre {
@@ -84,7 +88,7 @@ header, footer {
 	color: white;
 }
 
-p.excerpt{  
+p.end{  
 	border: 2px solid #008CBA;  
 	background-color:white;  
 	color: #008CBA;

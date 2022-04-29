@@ -2,12 +2,13 @@
 <html>
 	<head>
 		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<script src="code.js"></script>
 		<link href="stylesheet.css" rel="stylesheet" type="text/css">
 	</head>
 	
 	<body>
-	<header><img src="images/header.jpeg" style="max-width:100%"></header>
+	<header><img src="images/header.jpeg" style="max-width:50%"></header>
 	<main>
 	
 		<article class="grid-container">
@@ -23,7 +24,7 @@
 				<span class="tooltiptext">New game</span>
 			</div>
 			<div class ="container">
-				<img src="images/pizza-bottom-left.jpg" class ="slice3" onclick="getScores()" width="150" height="150">
+				<img src="images/pizza-bottom-left.jpg" class ="slice3" onclick="window.location.href='scores.html';" width="150" height="150">
 				<span class="tooltiptext">High Scores</span>
 			</div>
 			<div class ="container">
