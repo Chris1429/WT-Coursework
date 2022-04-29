@@ -2,8 +2,8 @@
 	"ingredients" : "<h2>Ingredients:</h2><ul><li>Butter (25g)</li><li>Plain flour(25g)</li></ul>",
 	"recipe1" : "1. Weigh equal quantities of flour and butter and place into your saucepan.",
 	"recipe2" : "<img src='images/Roux_blanc.jpg' style='max-width:150px'>2. Place over a medium heat and stir gently, combining the melted butter with the flour to form a smooth paste.",
-	"recipe3" : "<img src='images/Roux_blanc.jpg' style='max-width:150px'>",
+	"recipe3" : "3. Carry on heating for a minute or so to 'cook out' the flour, darkening the roux slightly.",
 	"recipe4" : "3. Carry on heating for a minute or so to 'cook out' the flour, darkening the roux slightly.",
 	"recipe5" : "If appropriate, leave to cool.",
-	"aside1" : "<h2>Did you know....</h2>Some stuff about a roux you might enjoy"
+	"aside1" : "<h2>Did you know....</h2>Roux is flour and fat cooked together and used to thicken sauces.<p>Roux is typically made from equal parts of flour and fat by weight.</p><p>The fat is most often butter in French cuisine, but may be lard or vegetable oil in other cuisines.</p>"
 }

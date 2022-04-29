@@ -1,9 +1,9 @@
 {
 	"ingredients" : "<h2>Ingredients:</h2><ul><li>Butter (25g)</li><li>Plain flour(25g)</li><li>Milk (300ml)</li><li>Pinches of: salt, pepper, ground nutmeg, cayenne pepper</li><li>1 bay leave</li><li>half a medium onion (whole)</li></ul>",
 	"recipe1" : "Place the milk in a saucepan along with the salt, pepper, spices, bay leave and onion.  Bring slowly to simmering point, simmer for a couple of minutes then strain into a jug.  Discard the flavourings.",
-	"recipe2" : "<img src='images/Roux_blanc.jpg' style='max-width:150px'>Make a roux using the butter and flour.",
+	"recipe2" : "<img src='images/Roux_blanc.jpg' style='max-width:25%'>Make a roux using the butter and flour.",
 	"recipe3" : "Add a small amount of milk and stir vigorously incorporating into the roux.  Keep adding a little of the milk at a time.",
 	"recipe4" : "Once about half the milk is in, start whisking in large amounts, making sure each pouring is fully incorporated before adding more.",
 	"recipe5" : "Turn the heat down very low and simmer for five minutes, then adjust seasoning to taste.",
-	"aside1" : "<h2>Did you know....</h2>Bechamel sauce is one of the 'mother sauces' of French cuisine?<p>A 'mother sauce' is used as the base for many other sauces.</p><p>Mornay sauce is made from bechamel and cheese.</p><p><iframe width='375' height='210' src='https://www.youtube.com/embed/9oGASwMjZ88' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe></p>"
+	"aside1" : "<h2>Did you know....</h2>Bechamel sauce is one of the 'mother sauces' of French cuisine?<p>A 'mother sauce' is used as the base for many other sauces.</p><p>Mornay sauce is made from bechamel and cheese.</p><p><div class='youtube-container'><iframe width='' height='' src='https://www.youtube.com/embed/9oGASwMjZ88' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe></div></p>"
 }

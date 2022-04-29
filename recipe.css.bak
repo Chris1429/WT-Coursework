@@ -1,7 +1,7 @@
 body {
 	display: grid;
 	min-height: 100vh;
-	grid-template-columns: auto 1fr auto;
+	grid-template-columns: auto 1fr 20vw;
 	grid-template-rows: min-content 1fr min-content;
 	background: var(--bg-color);
 }
@@ -65,4 +65,24 @@ footer {
   --text-color: #b96d40;
    --alt-bg-color: #ffbf00;
    --aside-color: #570000;
+}
+
+.button {
+  
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 12px;
+	background-color: var(--alt-bg-color);
+	color: var(--aside-color);
+	border: 2px solid var(--aside-color);
+}
+
+.button:hover {
+	background-color: var(--aside-color);
+	color: var(--alt-bg-color);
 }

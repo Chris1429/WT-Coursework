@@ -2,18 +2,22 @@
 <html>
 	<head>
 		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 		<script src="code.js"></script>
 		<link href="results.css" rel="stylesheet" type="text/css">
 	</head>
 	
 	<body onload="results()">
-	<header><img src="images/header.jpeg" style="max-width:100%"></header>
+	<header><img src="images/header.jpeg" style="max-width:50%"></header>
 	<main>
-		<p id="gameOver"></p><br>
+		<article class="centre">
+			<p class="excerpt" id="gameOver"></p><br>
+		</article>	
 		<article class="grid-container">
-		<button type="button" id="nextGame" class="button button1" title="Press for another game" onclick="window.location.href='quiz.html';"></button>
-		<button type="button" id="homePage" class="button button2" title="Press to return to the home page" onclick="goHome()">Home page</button>
-		<button type="button" id="viewRecipe" class="button button3" title="Press to see the recipe" onclick="window.location.href='recipe.html';">View recipe</button>
+			<button type="button" id="nextGame" class="button button1" title="Press for another game" onclick="window.location.href='quiz.html';"></button>
+			<button type="button" id="homePage" class="button button2" title="Press to return to the home page" onclick="goHome()">Home page</button>
+			<button type="button" id="viewRecipe" class="button button3" title="Press to see the recipe" onclick="window.location.href='recipe.html';">View recipe</button>
 		</article>
 	</main>
 	</body>

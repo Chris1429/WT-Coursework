@@ -21,7 +21,6 @@ table, th, td {
 	font-size: 16px;
 	margin: 4px 2px;
 	cursor: none;
-	/*border-radius: 12px;*/
 	background-color: white; 
 	color: #008CBA; 
 	border: 2px solid #008CBA;
@@ -34,8 +33,8 @@ th, td {
 }
 
 th {
-  background-color: #008CBA;/*#04AA6D;*/
-  color: white;/*white;*/
+	background-color: #008CBA;
+	color: white;
 }
 
 .centre {

@@ -141,7 +141,7 @@ function results(){
 	let a = sessionStorage.getItem("score");
 	let b = sessionStorage.getItem("outOf");
 	c = getRating(a,b);
-	let text = "Thank you " +sessionStorage.getItem("username") +" your score is: " +a +" out of " +b +", you are a " +c +"<br>  Thanks for playing Food Quiz";
+	let text = "<strong>Thank you " +sessionStorage.getItem("username") +" your score is: " +a +" out of " +b +", you are a " +c +"<br><br>Thank you for playing <em>Food Quiz</em></strong>";
 	document.getElementById("gameOver").innerHTML = text;
 	saveScore(c);
 	

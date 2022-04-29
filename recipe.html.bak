@@ -2,6 +2,7 @@
 <html lang="en" class="pasta">
 	<head>
 		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<script src="code.js"></script>
 		<link href="recipe.css" rel="stylesheet" type="text/css">
 	</head>
@@ -31,7 +32,7 @@
 			</article>
 		
 			<div class ="container">
-				<button id="nextPage" class="button" onclick=""></button>
+				<button type="button" id="nextPage" class="button" onclick=""></button>
 			</div>
 			
 		</main>
